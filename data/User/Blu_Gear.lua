@@ -8,9 +8,9 @@ function user_job_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Naegling','Nuking')
+	state.Weapons:options('Nuking','Naegling')
 
-    state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
+    --state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
 	gear.stp_jse_back = {name="Rosmerta's Cape",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10', 'Phys. dmg. taken-10%'}}
 	gear.nuke_jse_back = {name="Rosmerta's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10', 'Phys. dmg. taken-10%'}}
@@ -217,7 +217,7 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {
 		ammo="Staunch Tathlum +1",
-		head="Luhlaza Keffiya +3",
+		head="Luhlaza Keffiyeh +3",
 		body="Assim. Jubbah +3",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
@@ -226,8 +226,8 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Eabani Earring",
 		ear2="Genmei Earring",
-		ring1={name="Stikini Ring +1", bag="wardrobe5"},
-		ring2={name="Stikini Ring +1", bag="wardrobe6"},
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
 		back="Moonlight Cape",
 		waist="Plat. Mog. Belt",
 	}
@@ -262,7 +262,7 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
 	-- Weapons sets
-	sets.weapons.Naegling = {main="Naegling",sub="Machaera +3"}
+	sets.weapons.Naegling = {main="Naegling",sub="Machaera +2"}
 	sets.weapons.Nuking = {main="Sakpata's Sword", sub="Bunzi's Rod"}
 
 	-- Engaged sets
