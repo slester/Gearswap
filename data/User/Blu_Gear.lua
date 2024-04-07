@@ -105,10 +105,7 @@ function init_gear_sets()
 	sets.AccMaxTP = {ear1="Regal Earring",ear2="Telos Earring"}
 
 	-- Midcast Sets
-	sets.midcast.FastRecast = {main="Vampirism",sub="Sakpata's Sword",ammo="Hasty Pinion +1",
-		head="Carmine Mask +1",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Luhlaza Jubbah +3",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Prolix Ring",
-		back="Swith Cape +1",waist="Witful Belt",legs="Psycloth Lappas",feet="Carmine Greaves +1"}
+	sets.midcast.FastRecast = {}
 
 	sets.midcast['Blue Magic'] = {}
 
@@ -122,8 +119,8 @@ function init_gear_sets()
 		neck="Mirage Stole +2",
 		--ear1="Njordr Earring",
 		ear2="Hashi. Earring +1",
-		ring1={name="Stikini Ring +1", bag="wardrobe5"},
-		ring2={name="Stikini Ring +1", bag="wardrobe6"},
+		ring1=gear.StikiniRing,
+		ring2=gear.StikiniRing2,
 		--back="Cornflower Cape",
 	}
 
@@ -179,8 +176,8 @@ function init_gear_sets()
 		--neck="Mirage Stole +2",
 		ear1="Digni. Earring",
 		ear2="Regal Earring",
-		ring1={name="Stikini Ring +1", bag="wardrobe3"},
-		ring2={name="Stikini Ring +1", bag="wardrobe4"},
+		ring1=gear.StikiniRing,
+		ring2=gear.StikiniRing2,
 		back="Aurist's Cape +1",
 		waist="Acuity Belt +1",
 		--head="Volte Cap", hands=gear.Herc_TH_hands, feet="Volte Boots" -- TH Tag
@@ -226,8 +223,8 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Eabani Earring",
 		ear2="Genmei Earring",
-		ring1={name="Stikini Ring +1", bag="wardrobe3"},
-		ring2={name="Stikini Ring +1", bag="wardrobe4"},
+		ring1=gear.StikiniRing,
+		ring2=gear.StikiniRing2,
 		back="Moonlight Cape",
 		waist="Plat. Mog. Belt",
 	}
