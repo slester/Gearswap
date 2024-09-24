@@ -1621,6 +1621,12 @@ function check_ws()
 			windower.chat.input('/ws "'..data.weaponskills.relic[player.equipment.main]..'" <t>')
 			tickdelay = os.clock() + 2.8
 			return true
+		elseif player.target.hpp < 15 and autows == "Atonement" then
+			windower.chat.input('/ws "'..autows..'" <t>')
+			tickdelay = os.clock() + 2.8
+			return true
+		elseif autows == "Atonement" then
+			return false
 		elseif (buffactive['Aftermath: Lv.3'] or not state.MaintainAftermath.value or not data.equipment.mythic_weapons:contains(player.equipment.main)) and player.tp >= autowstp then
 			windower.chat.input('/ws "'..autows..'" <t>')
 			tickdelay = os.clock() + 2.8

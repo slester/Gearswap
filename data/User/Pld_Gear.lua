@@ -10,7 +10,7 @@ function user_job_setup()
     state.MagicalDefenseMode:options('MDT_HP','MDT','MDT_Reraise')
 	state.ResistDefenseMode:options('MEVA_HP','MEVA')
 	state.IdleMode:options('Tank','Kiting','PDT','Block','MDT','Normal')
-	state.Weapons:options('None','SakpataAegis','SakpataOchain','NaeglingBlurred','ClubOchain')
+	state.Weapons:options('None','BurtgangAegis','SakpataOchain','NaeglingBlurred','ClubOchain')
 	
     state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP','Twilight'}
 	
@@ -182,10 +182,21 @@ function init_gear_sets()
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Archon Ring",ring2="Metamor. Ring +1",
         back="Toro Cape",waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
-    sets.precast.WS['Atonement'] = {ammo="Paeapua",
-        head="Loess Barbuta +1",neck="Moonlight Necklace",ear1="Friomisi Earring",ear2="Trux Earring",
-        body="Souv. Cuirass +1",hands="Macabre Gaunt. +1",ring1="Apeile Ring +1",ring2="Apeile Ring",
-        back=gear.enmity_jse_back,waist="Creed Baudrier",legs="Souv. Diechlings +1",feet="Eschite Greaves"}
+    sets.precast.WS['Atonement'] = {
+		ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+		neck="Fotia Gorget",
+		ear1="Thrud Earring",
+		ear2="Moonshade Earring",
+        body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		ring1="Apeile Ring +1",
+		ring2="Epaminondas's Ring",
+        back=gear.enmity_jse_back,
+		waist="Fotia Belt",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+	}
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
 	sets.MaxTP = {ear1="Cessance Earring",ear2="Brutal Earring",}
@@ -311,7 +322,7 @@ function init_gear_sets()
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Warden's Ring",
 		back="Moonlight Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Hippo. Socks +1"}
 
-	sets.Kiting = {legs="Carmine Cuisses +1"}
+	sets.Kiting = {ring2="Shneddick Ring"}
 
 	sets.latent_refresh = {waist="Fucho-no-obi"}
 	sets.latent_refresh_grip = {sub="Oneiros Grip"}
@@ -332,7 +343,7 @@ function init_gear_sets()
 	sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 	
 	-- Weapons sets
-	sets.weapons.SakpataAegis = {main="Sakpata's Sword",sub="Aegis"}
+	sets.weapons.BurtgangAegis = {main="Burtgang",sub="Aegis"}
 	sets.weapons.NaeglingBlurred = {main="Naegling",sub="Blurred Shield"}
 	sets.weapons.SakpataOchain = {main="Sakpata's Sword",sub="Ochain"}
 	sets.weapons.ClubOchain = {main="Mafic Cudgel",sub="Ochain"}
