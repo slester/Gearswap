@@ -145,7 +145,7 @@ function init_gear_sets()
 		ear2="Malignance Earring",
 		body="Azimuth Coat +2",
 		hands="Azimuth Gloves +2",
-		ring1="Mujin Band",
+		ring1="Shiva Ring +1",
 		ring2="Freke Ring",
 		back="Nantosuelta's Cape",
 		waist="Refoccilation Stone", -- TODO: Sacro Cord
@@ -310,10 +310,12 @@ function init_gear_sets()
 	--------------------------------------
 	
 	-- Gear that converts elemental damage done to recover MP.	
-	sets.RecoverMP = {body="Seidr Cotehardie"}
+	--sets.RecoverMP = {body="Seidr Cotehardie"}
 	
 	-- Gear for Magic Burst mode.
-    sets.MagicBurst = set_combine(sets.midcast['Elemental Magic'], { })
+    sets.MagicBurst = set_combine(sets.midcast['Elemental Magic'], {
+		ring1="Mujin Band",
+	})
 
 	sets.buff.Sublimation = {waist="Embla Sash"}
     sets.buff.DTSublimation = {waist="Embla Sash"}
