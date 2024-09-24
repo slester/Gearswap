@@ -67,35 +67,25 @@ function init_gear_sets()
 	sets.weapons.SwordThrowing = {main="Naegling",sub="Gleti's Knife",range="Raider's Bmrng.",ammo=empty}
 	sets.weapons.Bow = {main="Aeneas",sub="Kustawi +1",range="Kaja Bow",ammo="Chapuli Arrow"}
 	
-    -- Actions we want to use to tag TH.
-    sets.precast.Step = {ammo="C. Palug Stone",
-        head="Malignance Chapeau",neck="Combatant's Torque",ear1="Mache Earring +1",ear2="Odr Earring",
-        body="Malignance Tabard",hands="Malignance Gloves",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-        back=gear.da_jse_back,waist="Olseni Belt",legs="Malignance Tights",feet="Malignance Boots"}
-		
-    sets.precast.JA['Violent Flourish'] = {ammo="C. Palug Stone",
-        head="Malignance Chapeau",neck="Combatant's Torque",ear1="Digni. Earring",ear2="Odr Earring",
-        body="Malignance Tabard",hands="Malignance Gloves",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-        back=gear.da_jse_back,waist="Olseni Belt",legs="Malignance Tights",feet="Malignance Boots"}
-		
-	sets.precast.JA['Animated Flourish'] = sets.TreasureHunter
-	sets.precast.JA.Provoke = sets.TreasureHunter
 
     --------------------------------------
     -- Precast sets
     --------------------------------------
+    -- Treasure Hunter
+    sets.precast.JA['Animated Flourish'] = sets.TreasureHunter
+    sets.precast.JA.Provoke = sets.TreasureHunter
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Collaborator'] = {"Skulker's Bonnet"}
-    sets.precast.JA['Accomplice'] = {"Skulker's Bonnet"}
-    sets.precast.JA['Flee'] = {} --feet="Pillager's Poulaines +1"
+    --sets.precast.JA['Collaborator'] = {"Skulker's Bonnet"}
+    --sets.precast.JA['Accomplice'] = {"Skulker's Bonnet"}
+    sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +3"}
     sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
-    sets.precast.JA['Conspirator'] = {body="Skulker's Vest"} 
-    sets.precast.JA['Steal'] = {} --feet="Pillager's Poulaines +1"
+    --sets.precast.JA['Conspirator'] = {body="Skulker's Vest"}
+    sets.precast.JA['Steal'] = {feet="Pillager's Poulaines +3"}
 	sets.precast.JA['Mug'] = {}
-    sets.precast.JA['Despoil'] = {legs="Skulker's Culottes",feet="Skulk. Poulaines +1"}
-    sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +1"}
-    sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
+    sets.precast.JA['Despoil'] = {feet="Skulk. Poulaines +1"}
+    sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +2"}
+    --sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
 
     sets.precast.JA['Sneak Attack'] = sets.buff['Sneak Attack']
     sets.precast.JA['Trick Attack'] = sets.buff['Trick Attack']
@@ -106,12 +96,6 @@ function init_gear_sets()
         body=gear.herculean_waltz_body,hands=gear.herculean_waltz_hands,ring1="Defending Ring",ring2="Valseur's Ring",
         back="Moonlight Cape",waist="Chaac Belt",legs="Dashing Subligar",feet=gear.herculean_waltz_feet}
 
-	sets.Self_Waltz = {head="Mummu Bonnet +2",body="Passion Jacket",ring1="Asklepian Ring"}
-		
-    -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {}
-
-
     -- Fast cast sets for spells
     sets.precast.FC = {ammo="Impatiens",
 		head=gear.herculean_fc_head,neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
@@ -120,43 +104,51 @@ function init_gear_sets()
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket"})
 
-
     -- Ranged snapshot gear
     sets.precast.RA = {}
 
-
     -- Weaponskill sets
-
-    -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
+        ammo="Coiste Bodhar",
         head="Nyame Helm",
+        neck="Caro Necklace",
         ear1="Moonshade Earring",
+        ear2="Sherida Earring",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Epaminondas's Ring",
+        ring2="Ilabrat Ring",
+        waist="Sailfi Belt +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         back=gear.wsd_jse_back,
     }
 
-    -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS,
-        {
-            neck = "Caro Necklace", 
-            ear2 = "Odr Earring",
-        })
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,
-        { ammo = "Yetshila +1", head = "Adhemar Bonnet +1", ear1 = "Moonshade Earring", ear2 = "Odr Earring", neck =
-        "Fotia Gorget", body = "Abnoba Kaftan", hands = "Mummu Wrists +2", ring1 = "Begrudging Ring", waist =
-        "Fotia Belt", legs = "Pill. Culottes +3", feet = "Mummu Gamash. +2" })
-    sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS,
-        { neck = "Caro Necklace", ear1 = "Moonshade Earring", ear2 = "Ishvara Earring", body = "Adhemar Jacket +1", back =
-        gear.wsd_jse_back, waist = "Sailfi Belt +1" })
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
+    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {})
+
+    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
+        ammo="Yetshila +1",
+        ear2="Odr Earring",
+        neck="Fotia Gorget",
+        hands="Gleti's Gauntlets",
+        ring1="Begrudging Ring",
+        ring2="Regal Ring",
+        waist="Fotia Belt",
+        legs="Gleti's Breeches",
+        feet="Gleti's Boots",
+    })
+
+    sets.precast.WS["Savage Blade"] = set_combine(sets.precast.WS, {
+       ear2="Telos Earring",
+       ring2="Regal Ring",
+    })
+
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+    })
 
 	-- Swap to these on Moonshade using WS if at 3000 TP
-	sets.MaxTP = {ear1="Ishvara Earring",ear2="Sherida Earring"}
-	sets.AccMaxTP = {ear1="Mache Earring +1",ear2="Sherida Earring"}
+	sets.MaxTP = {ear1="Ishvara Earring"}
+	--sets.AccMaxTP = {ear1="Mache Earring +1",ear2="Sherida Earring"}
 
     --------------------------------------
     -- Midcast sets
