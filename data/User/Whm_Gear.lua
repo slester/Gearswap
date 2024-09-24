@@ -260,8 +260,8 @@ function init_gear_sets()
 
 	sets.midcast.Impact = {
 		main="Daybreak",
-		sub="Ammurapi
-		Shield",ammo="Pemphredo Tathlum",
+		sub="Ammurapi Shield",
+		ammo="Pemphredo Tathlum",
 		head=empty,
 		neck="Erra Pendant",
 		ear1="Regal Earring",

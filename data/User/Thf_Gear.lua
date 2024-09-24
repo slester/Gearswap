@@ -59,7 +59,7 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Aeneas = {main="Aeneas",sub="Gleti's Knife"}
-    sets.weapons.AeneasThrowing = {main="Naegling",sub="Gleti's Knife",range="Albin Bane",ammo=empty}
+    sets.weapons.AeneasThrowing = {main="Aeneas",sub="Gleti's Knife",range="Albin Bane",ammo=empty}
 	--sets.weapons.Aeolian = {main="Malevolence",sub="Malevolence"}
 	sets.weapons.Savage = {main="Naegling",sub="Gleti's Knife"}
 	--sets.weapons.ProcWeapons = {main="Blurred Knife +1",sub="Atoyac"}
@@ -221,7 +221,7 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {
         ammo="Staunch Tathlum +1",
-        head="Dampening Tam",
+        head="Malignance Chapeau",
         neck="Loricate Torque +1",
         ear1="Telos Earring",
         ear2="Sherida Earring",

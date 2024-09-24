@@ -11,6 +11,10 @@ function user_job_setup()
 
 	autoindi = "Haste"
 	autogeo = "Frailty"
+
+    gear.nuke_jse_cape = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+    gear.pet_regen_jse_cape = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
+    gear.fastcast_jse_cape = { name="Nantosuelta's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 	
 	-- Additional local binds
 	send_command('bind ^` gs c cycle ElementalMode')
@@ -45,7 +49,7 @@ function init_gear_sets()
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
-	sets.precast.JA['Life Cycle'] = {body="Geo. Tunic +3", back="Nantosuelta's Cape"}
+	sets.precast.JA['Life Cycle'] = {body="Geo. Tunic +3", back=gear.fastcast_jse_cape}
 	sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 	sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
 	sets.precast.JA['Full Circle'] = {head="Azimuth Hood +2", hands="Bagua Mitaines +3"}
@@ -147,7 +151,7 @@ function init_gear_sets()
 		hands="Azimuth Gloves +2",
 		ring1="Medada's Ring",
 		ring2="Shiva Ring +1",
-		back="Nantosuelta's Cape",
+		back=gear.nuke_jse_cape,
 		waist="Refoccilation Stone", -- TODO: Sacro Cord
 		legs="Azimuth Tights +2",
 		feet="Azimuth Gaiters +2",
@@ -156,12 +160,12 @@ function init_gear_sets()
 	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 								  head=gear.merlinic_nuke_head,neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 								  body=gear.merlinic_nuke_body,hands="Amalric Gages +1",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-								  back=gear.nuke_jse_back,waist="Yamabuki-no-Obi",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
+								  back=gear.nuke_jse_cape,waist="Yamabuki-no-Obi",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
 
 	sets.midcast.Drain = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 						  head="Pixie Hairpin +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 						  body=gear.merlinic_nuke_body,hands="Amalric Gages +1",ring1="Archon Ring",ring2="Evanescence Ring",
-						  back=gear.nuke_jse_back,waist="Fucho-no-obi",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
+						  back=gear.nuke_jse_cape,waist="Fucho-no-obi",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
 
 	sets.midcast.Aspir = sets.midcast.Drain
 
@@ -173,17 +177,17 @@ function init_gear_sets()
 	sets.midcast.Stun.Resistant = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 								   head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 								   body="Zendik Robe",hands="Amalric Gages +1",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-								   back=gear.nuke_jse_back,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
+								   back=gear.nuke_jse_cape,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
 
 	sets.midcast.Impact = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 						   head=empty,neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 						   body="Twilight Cloak",hands="Regal Cuffs",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-						   back=gear.nuke_jse_back,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet="Amalric Nails +1"}
+						   back=gear.nuke_jse_cape,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet="Amalric Nails +1"}
 
 	sets.midcast.Dispel = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
 						   head="Amalric Coif +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Malignance Earring",
 						   body="Zendik Robe",hands="Amalric Gages +1",ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-						   back=gear.nuke_jse_back,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
+						   back=gear.nuke_jse_cape,waist="Acuity Belt +1",legs="Merlinic Shalwar",feet=gear.merlinic_aspir_feet}
 
 	sets.midcast.Dispelga = set_combine(sets.midcast.Dispel, {main="Daybreak", sub="Ammurapi Shield"})
 
@@ -199,7 +203,7 @@ function init_gear_sets()
 		hands="Regal Cuffs",
 		ring1="Kishar Ring",
 		ring2={name="Stikini Ring +1", bag="wardrobe4"},
-		back="Nantosuelta's Cape",
+		back=gear.nuke_jse_cape,
 		waist="Luminary Sash",
 		legs="Geomancy Pants +3",
 		feet="Geo. Sandals +3",
@@ -248,7 +252,7 @@ function init_gear_sets()
 		hands="Geo. Mitaines +3",
 		ring1="Defending Ring",
 		ring2="Gelatinous Ring +1",
-		back="Nantosuelta's Cape",
+		back=gear.fastcast_jse_cape,
 		waist="Isa Belt",
 		legs="Nyame Flanchard",
 		feet="Bagua Sandals +3",
@@ -267,7 +271,7 @@ function init_gear_sets()
 		hands="Geo. Mitaines +3",
 		ring1="Defending Ring",
 		ring2={name="Stikini Ring +1", bag="wardrobe4"},
-		back="Nantosuelta's Cape",
+		back=gear.pet_regen_jse_cape,
 		waist="Isa Belt",
 		legs="Agwu's Slops",
 		feet="Bagua Sandals +3",
