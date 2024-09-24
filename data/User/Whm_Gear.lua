@@ -135,12 +135,25 @@ function init_gear_sets()
     -- Cure sets
 
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
-	
-	sets.midcast.Cure = {main="Queller Rod",sub="Sors Shield",ammo="Pemphredo Tathlum",
-		head="Gende. Caubeen +1",neck="Incanter's Torque",ear1="Regal Earring",ear2="Glorious Earring",
-		body="Theo. Bliaut +2",hands="Theophany Mitts +3",ring1="Janniston Ring",ring2="Menelaus's Ring",
-		back="Alaunus's Cape",waist="Luminary Sash",legs="Ebers Pant. +1",feet="Kaykaus Boots"}
-		
+
+	sets.midcast.Cure = {
+		main="Raetic Rod +1",
+		sub="Genmei Shield",
+		ammo="Pemphredo Tathlum",
+		head="Kaykaus Mitra +1",
+		neck="Cleric's Torque +2",
+		ear1="Glorious Earring",
+		ear2="Magnetic Earring",
+		body="Ebers Bliaut +3",
+		hands="Theophany Mitts +3",
+		ring1="Gelatinous Ring +1",
+		ring2="Defending Ring",
+		back="Alaunus's Cape",
+		waist="Korin Obi",
+		legs="Ebers Pantaloons +3",
+		feet="Kaykaus Boots +1"
+	}
+
 	sets.midcast.CureSolace = {main="Queller Rod",sub="Sors Shield",ammo="Pemphredo Tathlum",
 		head="Gende. Caubeen +1",neck="Incanter's Torque",ear1="Regal Earring",ear2="Glorious Earring",
 		body="Ebers Bliaut +1",hands="Theophany Mitts +3",ring1="Janniston Ring",ring2="Menelaus's Ring",

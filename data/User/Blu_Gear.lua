@@ -104,9 +104,8 @@ function init_gear_sets()
 		--back=gear.BLU_FC_Cape, --10
 	}
 
-	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket"})
-
-	sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
+	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
+	sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {})
 
 
 	-- Weaponskill sets

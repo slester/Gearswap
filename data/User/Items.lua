@@ -8,8 +8,8 @@ sets.buff.Doom = {
     ring2="Eshmun's Ring",
 }
 
-sets.precast.Item['Hallowed Water'] = {}
-sets.precast.Item['Holy Water'] = {}
+sets.precast.Item['Holy Water'] = {ring1="Blenmot's Ring +1"}
+sets.precast.Item['Hallowed Water'] = sets.precast.Item['Holy Water']
 
 sets.TreasureHunter = {
     head="Wh. Rarab Cap +1",
