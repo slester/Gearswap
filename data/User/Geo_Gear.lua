@@ -145,8 +145,8 @@ function init_gear_sets()
 		ear2="Malignance Earring",
 		body="Azimuth Coat +2",
 		hands="Azimuth Gloves +2",
-		ring1="Shiva Ring +1",
-		ring2="Freke Ring",
+		ring1="Medada's Ring",
+		ring2="Shiva Ring +1",
 		back="Nantosuelta's Cape",
 		waist="Refoccilation Stone", -- TODO: Sacro Cord
 		legs="Azimuth Tights +2",
@@ -314,7 +314,7 @@ function init_gear_sets()
 	
 	-- Gear for Magic Burst mode.
     sets.MagicBurst = set_combine(sets.midcast['Elemental Magic'], {
-		ring1="Mujin Band",
+		ring2="Mujin Band",
 	})
 
 	sets.buff.Sublimation = {waist="Embla Sash"}

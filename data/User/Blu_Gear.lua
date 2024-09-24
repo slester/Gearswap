@@ -75,8 +75,8 @@ function init_gear_sets()
 		neck="Voltsurge Torque", --4
 		ear1="Loquacious Earring", --2
 		ear2="Etiolation Earring", --1
-		ring1="Kishar Ring", --4
-		ring2="Medada's Ring", --10
+		ring1="Medada's Ring", --10
+		ring2="Kishar Ring", --4
 		--back=gear.BLU_FC_Cape, --10
 	}
 
@@ -148,7 +148,7 @@ function init_gear_sets()
 		neck="Baetyl Pendant",
 		ear1="Friomisi Earring",
 		ear2="Regal Earring",
-		ring1="Shiva Ring +1",
+		ring1="Medada's Ring",
 		ring2="Metamor. Ring +1",
 		back=gear.nuke_jse_back,
 		waist="Orpheus's Sash",

@@ -9,7 +9,7 @@ function user_job_setup()
     state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Aeneas','Aeolian','Savage','ProcWeapons','Evisceration','Throwing','SwordThrowing','Bow')
+	state.Weapons:options('Aeneas','AeneasThrowing','Savage','Evisceration')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','Suppa','DWMax','Parry'}
 	state.AmbushMode = M(false, 'Ambush Mode')
@@ -59,14 +59,13 @@ function init_gear_sets()
 	
 	-- Weapons sets
 	sets.weapons.Aeneas = {main="Aeneas",sub="Gleti's Knife"}
-	sets.weapons.Aeolian = {main="Malevolence",sub="Malevolence"}
+    sets.weapons.AeneasThrowing = {main="Naegling",sub="Gleti's Knife",range="Albin Bane",ammo=empty}
+	--sets.weapons.Aeolian = {main="Malevolence",sub="Malevolence"}
 	sets.weapons.Savage = {main="Naegling",sub="Gleti's Knife"}
-	sets.weapons.ProcWeapons = {main="Blurred Knife +1",sub="Atoyac"}
+	--sets.weapons.ProcWeapons = {main="Blurred Knife +1",sub="Atoyac"}
 	sets.weapons.Evisceration = {main="Tauret",sub="Gleti's Knife"}
-	sets.weapons.Throwing = {main="Aeneas",sub="Gleti's Knife",range="Raider's Bmrng.",ammo=empty}
-	sets.weapons.SwordThrowing = {main="Naegling",sub="Gleti's Knife",range="Raider's Bmrng.",ammo=empty}
-	sets.weapons.Bow = {main="Aeneas",sub="Kustawi +1",range="Kaja Bow",ammo="Chapuli Arrow"}
-	
+	--sets.weapons.Throwing = {main="Aeneas",sub="Gleti's Knife",range="Raider's Bmrng.",ammo=empty}
+	--sets.weapons.Bow = {main="Aeneas",sub="Kustawi +1",range="Kaja Bow",ammo="Chapuli Arrow"}
 
     --------------------------------------
     -- Precast sets
@@ -91,18 +90,22 @@ function init_gear_sets()
     sets.precast.JA['Trick Attack'] = sets.buff['Trick Attack']
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {ammo="Yamarang",
-        head="Mummu Bonnet +2",neck="Unmoving Collar +1",ear1="Enchntr. Earring +1",ear2="Handler's Earring +1",
-        body=gear.herculean_waltz_body,hands=gear.herculean_waltz_hands,ring1="Defending Ring",ring2="Valseur's Ring",
-        back="Moonlight Cape",waist="Chaac Belt",legs="Dashing Subligar",feet=gear.herculean_waltz_feet}
+    sets.precast.Waltz = {
+        ammo="Yamarang",
+        neck="Unmoving Collar +1",
+    }
 
     -- Fast cast sets for spells
-    sets.precast.FC = {ammo="Impatiens",
-		head=gear.herculean_fc_head,neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Dread Jupon",hands="Leyline Gloves",ring1="Lebeche Ring",ring2="Prolix Ring",
-		legs="Rawhide Trousers"}
+    sets.precast.FC = {
+        ammo="Impatiens",
+		neck="Voltsurge Torque",
+        ear2="Loquac. Earring",
+		hands="Leyline Gloves",
+        ring1="Medada's Ring",
+        ring2="Prolix Ring",
+    }
 
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket"})
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
     -- Ranged snapshot gear
     sets.precast.RA = {}
