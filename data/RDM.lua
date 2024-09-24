@@ -205,7 +205,7 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		end
 
 		if spell.english == 'Phalanx II' and spell.target.type =='SELF' and sets.Self_Phalanx then
-			equip(sets.Self_Phalanx)
+			equip(sets.midcast.Phalanx)
 		elseif sets.midcast[spell.english] then
 			equip(sets.midcast[spell.english])
 		elseif sets.midcast[spellMap] then
