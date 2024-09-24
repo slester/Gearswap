@@ -250,7 +250,7 @@ function init_gear_sets()
 
 	sets.defense.NukeLock = sets.midcast['Blue Magic'].Magical
 
-	sets.Kiting = {legs="Carmine Cuisses +1"}
+	sets.Kiting = {ring2="Shneddick Ring"}
 
     -- Extra Melee sets.  Apply these on top of melee sets.
     sets.Knockback = {}
