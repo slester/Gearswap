@@ -442,10 +442,16 @@ function init_gear_sets()
 		body="Kaykaus Bliaut",hands="Kaykaus Cuffs",ring1="Kunaji Ring",ring2="Meridian Ring",
 		back="Alaunus's Cape",waist="Eschan Stone",legs="Ebers Pant. +1",feet="Kaykaus Boots"}
 
-	-- Override Gambanteinn in main slot if also doomed
-	sets.buff.Doom = set_combine(sets.buff.Doom, {
+	sets.buff.Doom = {
+		-- Override Gambanteinn in main slot if also doomed
 		main="Yagrush",
-	})
+		neck="Nicander's Necklace",
+		waist="Gishdubar Sash",
+		ring1="Eshmun's Ring",
+		ring2="Eshmun's Ring",
+	}
+	sets.precast.Item['Holy Water'] = {ring1="Blenmot's Ring +1"}
+	sets.precast.Item['Hallowed Water'] = sets.precast.Item['Holy Water']
 
 end
 

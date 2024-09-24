@@ -21,7 +21,6 @@ gear.StikiniRing2 = {name="Stikini Ring +1", bag="wardrobe4"}
 
 gear.ChironicSlippers_Refresh = {name="Chironic Slippers", augments={'Pet: CHR+1', 'STR+10', '"Refresh"+2', 'Accuracy+2 Attack+2', 'Mag. Acc.+7 "Mag.Atk.Bns."+7'}}
 
-
 gear.TelchineCap_EnhancingDuration = {name="Telchine Cap", augments={'Enhancing magic effect duration +10%'}}
 gear.TelchineChasuble_EnhancingDuration = {name="Telchine Chasuble", augments={'Enhancing magic effect duration +10%'}}
 gear.TelchineGloves_EnhancingDuration = {name="Telchine Gloves", augments={'Enhancing magic effect duration +10%'}}

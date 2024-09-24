@@ -14,8 +14,8 @@ function user_job_setup()
 	
     state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None','MP','Twilight'}
 	
-	gear.fastcast_jse_back = {name="Rudianos's Mantle",augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10',}}
-	gear.enmity_jse_back = {name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','HP+20','Enmity+10',}}
+	gear.fastcast_jse_back = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','HP+20','"Fast Cast"+10',}}
+	gear.enmity_jse_back = {name="Rudianos's Mantle",augments={'HP+60','Eva.+20 /Mag. Eva.+20','HP+20','Enmity+10', 'Chance of successful block +5'}}
 
 	-- Additional local binds
 	send_command('bind !` gs c SubJobEnmity')
@@ -41,18 +41,28 @@ function user_job_setup()
 end
 
 function init_gear_sets()
-	
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
-    sets.Enmity = {main="Sakpata's Sword",sub="Ochain",ammo="Paeapua",
-        head="Loess Barbuta +1",neck="Moonlight Necklace",ear1="Friomisi Earring",ear2="Trux Earring",
-        body="Souv. Cuirass +1",hands="Macabre Gaunt. +1",ring1="Apeile Ring +1",ring2="Apeile Ring",
-        back=gear.enmity_jse_back,waist="Creed Baudrier",legs="Souv. Diechlings +1",feet="Eschite Greaves"}
+    sets.Enmity = {
+		ammo="Sapience Orb",
+        head="Loess Barbuta +1",
+		neck="Moonlight Necklace",
+		ear1={ name = "Tuisto Earring", priority = 150},
+		ear2={ name = "Odnowa Earring +1", priority = 110},
+        body="Souveran Cuirass +1", -- TODO Obviation cuirass +1
+		hands="Souveran Handschuhs +1", -- TODO	hands="Macabre Gaunt. +1",
+		ring1="Vexer Ring +1",
+		ring2="Apeile Ring +1",
+        back=gear.enmity_jse_back,
+		waist="Creed Baudrier",
+		legs="Souveran Diechlings +1",
+		feet="Chevalier's Sabatons +2", -- TODO: +3
+	}
 
     -- Precast sets to enhance JAs
     sets.precast.JA['Invincible'] = set_combine(sets.Enmity,{legs="Cab. Breeches +1"})
-    sets.precast.JA['Holy Circle'] = set_combine(sets.Enmity,{feet="Rev. Leggings +3"})
+    sets.precast.JA['Holy Circle'] = set_combine(sets.Enmity,{feet="Rev. Leggings +1"}) -- +3
     sets.precast.JA['Sentinel'] = set_combine(sets.Enmity,{feet="Cab. Leggings +1"})
     sets.precast.JA['Rampart'] = set_combine(sets.Enmity,{}) --head="Valor Coronet" (Also Vit?)
     sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{body="Cab. Surcoat +1"})
@@ -62,7 +72,7 @@ function init_gear_sets()
     -- add mnd for Chivalry
     sets.precast.JA['Chivalry'] = {ammo="Paeapua",
 		head="Nyame Helm",neck="Unmoving Collar +1",ear1="Nourish. Earring",ear2="Nourish. Earring +1",
-		body="Rev. Surcoat +3",hands="Cab. Gauntlets +1",ring1="Stikini Ring +1",ring2="Rufescent Ring",
+		body="Rev. Surcoat +1",hands="Cab. Gauntlets +1",ring1="Stikini Ring +1",ring2="Rufescent Ring",
 		back=gear.enmity_jse_back,waist="Luminary Sash",legs="Nyame Flanchard",feet="Carmine Greaves +1"}
 		
 	sets.precast.JA['Shield Bash'] = set_combine(sets.Enmity, {hands="Cab. Gauntlets +1"})
@@ -75,29 +85,24 @@ function init_gear_sets()
 	sets.precast.JA['Aggressor'] = set_combine(sets.Enmity, {})
 	
     -- Fast cast sets for spells
-    sets.precast.FC = {main="Sakpata's Sword",sub="Chanter's Shield",ammo="Impatiens",
-		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Rev. Surcoat +3",hands="Leyline Gloves",ring1="Lebeche Ring",ring2="Kishar Ring",
-		,waist="Creed Baudrier",legs=gear.odyssean_fc_legs,feet="Odyssean Greaves"}
-
-
+	-- 59%
 	sets.precast.FC = {
-		ammo = "Sapience Orb",
-		head ={ name = "Carmine Mask +1", augments ={'Accuracy+20', 'Mag. Acc.+12', '"Fast Cast"+4',}},
-		body ={ name = "Rev. Surcoat +1", priority = 254}, -- TODO +3
-		hands = "Leyline Gloves",
-		feet ={ name = "Carmine Greaves +1", augments ={'HP+80', 'MP+80', 'Phys. dmg. taken -4',}},
+		ammo = "Sapience Orb", -- 2%
+		head ={ name = "Carmine Mask +1", augments ={'Accuracy+20', 'Mag. Acc.+12', '"Fast Cast"+4',}}, -- 14%
+		body ={ name = "Odyssean Chestplate", priority = 254}, -- 5%   TODO Rev Surcoat +3
+		hands = "Leyline Gloves", -- 8%
+		feet = "Chevalier Sabatons +2", -- 10%
 		neck ={ name = "Unmoving Collar +1", priority = 200},
-		left_ear ={ name = "Tuisto Earring", priority = 150}
-		right_ear ={ name = "Odnowa Earring +1", priority = 110},
-		left_ring = "Kishar Ring",
-		right_ring ={ name = "Gelatinous Ring +1", priority = 135},
-		waist ={ name = "Creed Baudrier", priority = 40},
-		back = gear.fastcast_jse_back,
+		ear1={ name = "Tuisto Earring", priority = 150},
+		ear2={ name = "Odnowa Earring +1", priority = 110},
+		ring1 = "Medada's Ring", -- +10%
+		ring2 ={ name = "Gelatinous Ring +1", priority = 135},
+		waist = "Audumbla Sash",
+		back = gear.fastcast_jse_back, -- 10%
 	}
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
-	sets.precast.FC.Cure = set_combine(sets.precast.FC, {neck="Diemer Gorget",ear1="Nourish. Earring",ear2="Nourish. Earring +1",body="Jumalik Mail"})
+	--sets.precast.FC.Cure = set_combine(sets.precast.FC, {neck="Diemer Gorget",ear1="Nourish. Earring",ear2="Nourish. Earring +1",body="Jumalik Mail"})
   
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -126,30 +131,49 @@ function init_gear_sets()
 	sets.MaxTP = {ear1="Cessance Earring",ear2="Brutal Earring",}
 	sets.AccMaxTP = {ear1="Mache Earring +1",ear2="Telos Earring"}
 
-
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
-    sets.midcast.FastRecast = {main="Sakpata's Sword",sub="Chanter's Shield",ammo="Hasty Pinion +1",
-		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquac. Earring",
-		body="Rev. Surcoat +3",hands="Leyline Gloves",ring1="Gelatinous Ring +1",ring2="Kishar Ring",
-		back=gear.fastcast_jse_back,waist="Creed Baudrier",legs=gear.odyssean_fc_legs,feet="Odyssean Greaves"}
+    sets.midcast.FastRecast = {}
 
 	-- Spells that cast during battle should always be SIRD
-    sets.midcast.Flash = set_combine(sets.Enmity, {})
+    sets.midcast.Flash = {
+		ammo = "Staunch Tathlum +1",
+		head = "Souveran Schaller +1",
+		neck = "Moonlight Necklace",
+		ear1 = "Cryptic Earring",
+		ear2 = "Odnowa Earring +1",
+		body = "Souveran Cuirass +1",
+		hands = "Souveran Handschuhs +1", 
+		ring1 = "Defending Ring",
+		ring2 = "Apeile Ring +1", -- TODO: R15
+		back = gear.enmity_jse_back,
+		waist = "Creed Baudrier",
+		legs = "Chevalier's Cuisses +2",
+		feet = "Chevalier's Sabatons +2"
+	}
+
     sets.midcast.Stun = set_combine(sets.Enmity, {})
 	sets.midcast['Blue Magic'] = set_combine(sets.Enmity, {})
 	sets.midcast.Cocoon = set_combine(sets.Enmity, {})
 
-    sets.midcast.Cure = {main="Sakpata's Sword",sub="Sacro Bulwark",ammo="Staunch Tathlum +1",
-		head="Loess Barbuta +1",neck="Sacro Gorget",ear1="Nourish. Earring",ear2="Nourish. Earring +1",
-		body="Jumalik Mail",hands="Macabre Gaunt. +1",ring1="Defending Ring",ring2="Moonlight Ring",
-		back=gear.enmity_jse_back,waist="Creed Baudrier",legs="Carmine Cuisses +1",feet="Odyssean Greaves"}
+    sets.midcast.Cure = {
+		ammo = "Staunch Tathlum +1",
+		head = "Souveran Schaller +1",
+		neck = "Moonlight Necklace",
+		ear1 = "Tuisto Earring",
+		ear2 = "Cryptic Earring",
+		body = "Souveran Cuirass +1",
+		hands = "Souveran Handschuhs +1", 
+		ring1 = "Defending Ring",
+		ring2 = "Eihwaz Ring",
+		back = gear.enmity_jse_back,
+		waist = "Audumbla Sash",
+		legs = "Souveran Diechlings +1",
+		feet = "Chevalier's Sabatons +2" -- TODO +3
+	}
 
-    sets.midcast.Reprisal = {main="Sakpata's Sword",sub="Forfend +1",ammo="Staunch Tathlum +1",
-		head="Loess Barbuta +1",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
-        body="Rev. Surcoat +3",hands="Souv. Handsch. +1",ring1="Gelatinous Ring +1",ring2="Moonlight Ring",
-        back="Moonlight Cape",waist="Creed Baudrier",legs="Arke Cosc. +1",feet="Souveran Schuhs +1"}
+    sets.midcast.Reprisal = {}
 
 	sets.Self_Healing = {main="Deacon Sword",sub="Sacro Bulwark",ammo="Staunch Tathlum +1",
 		head="Souv. Schaller +1",neck="Sacro Gorget",ear1="Nourish. Earring",ear2="Nourish. Earring +1",
@@ -158,11 +182,6 @@ function init_gear_sets()
 		
 	sets.Cure_Received = {hands="Souv. Handsch. +1",feet="Souveran Schuhs +1"}
 	sets.Self_Refresh = {waist="Gishdubar Sash"}
-
-    sets.midcast['Enhancing Magic'] = {main="Colada",sub="Ochain",ammo="Staunch Tathlum +1",
-		head="Carmine Mask +1",neck="Incanter's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",
-		body="Shab. Cuirass +1",hands="Regal Gauntlets",ring1="Defending Ring",ring2="Kishar Ring",
-		back="Merciful Cape",waist="Olympus Sash",legs="Carmine Cuisses +1",feet="Odyssean Greaves"}
 
 	-- These buffs aren't used during battle, so they don't need SIRD
 	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
@@ -174,35 +193,22 @@ function init_gear_sets()
 	sets.Phalanx_Received = {main="Sakpata's Sword",hands="Souv. Handsch. +1",back="Weard Mantle",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
 
     -- Idle sets
-    sets.idle = {main="Malignance Sword",sub="Ochain",ammo="Homiliary",
-		head="Jumalik Helm",neck="Coatl Gorget +1",ear1="Etiolation Earring",ear2="Ethereal Earring",
-		body="Jumalik Mail",hands="Regal Gauntlets",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Moonlight Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Hippo. Socks +1"}
+    sets.idle = {
+		ammo = "Staunch Tathlum +1",
+		head = "Chevalier's Armet +2", -- +3
+		neck = "Warder's Charm +1",
+		ear1 = "Thureous Earring",
+		ear2 = "Odnowa Earring +1",
+		body = "Sakpata's Plate",
+		hands = "Souveran Handschuhs +1", 
+		ring1 = "Moonlight Ring",
+		ring2 = "Moonlight Ring",
+		back = gear.enmity_jse_back, -- TODO: block skill?
+		waist = "Carrier's Sash",
+		legs = "Chevalier's Cuisses +2",
+		feet = "Souveran Schuhs +1"
+	}
 		
-    sets.idle.PDT = {main="Sakpata's Sword",sub="Sacro Bulwark",ammo="Eluder's Sachet",
-		head="Sakpata's Helm",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Warden's Ring",
-		back="Moonlight Cape",waist="Flume Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
-		
-    sets.idle.Block = {main="Deacon Sword",sub="Ochain",ammo="Staunch Tathlum +1",
-		head="Chevalier's Armet +1",neck="Diemer Gorget",ear1="Creed Earring",ear2="Thureous Earring",
-		body="Sakpata's Breastplate",hands="Souv. Handsch. +1",ring1="Gelatinous Ring +1",ring2="Moonlight Ring",
-		back="Shadow Mantle",waist="Flume Belt +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
-		
-    sets.idle.MDT = {main="Sakpata's Sword",sub="Aegis",ammo="Staunch Tathlum +1",
-		head="Nyame Helm",neck="Warder's Charm +1",ear1="Etiolation Earring",ear2="Sanare Earring",
-		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Archon Ring",ring2="Shadow Ring",
-		back=gear.fastcast_jse_back,waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
-
-	sets.idle.Tank = {main="Sakpata's Sword",sub="Ochain",ammo="Staunch Tathlum +1",
-		head="Chev. Armet +1",neck="Warder's Charm +1",ear1="Creed Earring",ear2="Thureous Earring",
-		body="Sakpata's Breastplate",hands="Souv. Handsch. +1",ring1="Gelatinous Ring +1",ring2="Shadow Ring",
-		back="Shadow Mantle",waist="Flume Belt +1",legs="Chev. Cuisses +1",feet="Souveran Schuhs +1"}
-		
-	sets.idle.Kiting = {main="Sakpata's Sword",sub="Sacro Bulwark",ammo="Eluder's Sachet",
-		head="Sakpata's Helm",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
-		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Warden's Ring",
-		back="Moonlight Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Hippo. Socks +1"}
 
 	sets.Kiting = {ring2="Shneddick Ring"}
 
@@ -233,22 +239,22 @@ function init_gear_sets()
 		back="Shadow Mantle",waist="Flume Belt +1",legs="Sakpata's Cuisses",feet="Souveran Schuhs +1"}
 		
 	sets.defense.PDT = {main="Sakpata's Sword",sub="Ochain",ammo="Eluder's Sachet",
-		head="Sakpata's Helm",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
+		head="Sakpata's Helm",neck="Unmoving Collar +1",ear2="Odnowa Earring +1",ear1="Tuisto Earring",
 		body="Sakpata's Breastplate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Warden's Ring",
 		back="Shadow Mantle",waist="Flume Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 		
     sets.defense.PDT_HP = {main="Sakpata's Sword",sub="Ochain",ammo="Eluder's Sachet",
-        head="Souv. Schaller +1",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
+        head="Souv. Schaller +1",neck="Unmoving Collar +1",ear2="Odnowa Earring +1",ear1="Tuisto Earring",
         body="Rev. Surcoat +3",hands="Souv. Handsch. +1",ring1="Gelatinous Ring +1",ring2="Moonlight Ring",
         back="Moonlight Cape",waist="Creed Baudrier",legs="Arke Cosc. +1",feet="Souveran Schuhs +1"}
 		
 	sets.defense.MDT = {main="Malignance Sword",sub="Aegis",ammo="Staunch Tathlum +1",
-		head="Nyame Helm",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Sanare Earring",
+		head="Nyame Helm",neck="Warder's Charm +1",ear2="Odnowa Earring +1",ear1="Sanare Earring",
 		body="Nyame Mail",hands="Nyame Gauntlets",ring1="Archon Ring",ring2="Shadow Ring",
 		back=gear.fastcast_jse_back,waist="Carrier's Sash",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 		
     sets.defense.MDT_HP = {main="Sakpata's Sword",sub="Aegis",ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
+        head="Sakpata's Helm",neck="Warder's Charm +1",ear2="Odnowa Earring +1",ear1="Tuisto Earring",
         body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Moonlight Ring",
         back="Moonlight Cape",waist="Carrier's Sash",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 
@@ -258,7 +264,7 @@ function init_gear_sets()
 		back=gear.fastcast_jse_back,waist="Asklepian Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 		
     sets.defense.MEVA_HP = {main="Malignance Sword",sub="Aegis",ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",neck="Warder's Charm +1",ear1="Odnowa Earring +1",ear2="Tuisto Earring",
+        head="Sakpata's Helm",neck="Warder's Charm +1",ear2="Odnowa Earring +1",ear1="Tuisto Earring",
         body="Sakpata's Plate",hands="Sakpata's Gauntlets",ring1="Gelatinous Ring +1",ring2="Moonlight Ring",
         back="Moonlight Cape",waist="Asklepian Belt",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
 		
@@ -268,44 +274,19 @@ function init_gear_sets()
 	--------------------------------------
 	-- Engaged sets
 	--------------------------------------
-    
-	sets.engaged = {main="Sakpata's Sword",sub="Ochain",ammo="Aurgelmir Orb +1",
-		head="Flam. Zucchetto +2",neck="Asperity Necklace",ear1="Cessance Earring",ear2="Brutal Earring",
-		body=gear.valorous_wsd_body,hands="Sakpata's Gauntlets",ring1="Flamma Ring",ring2="Petrov Ring",
-		back="Bleating Mantle",waist="Windbuffet Belt +1",legs="Sulev. Cuisses +2",feet="Flam. Gambieras +2"}
-
-    sets.engaged.Acc = {main="Sakpata's Sword",sub="Ochain",ammo="Hasty Pinion +1",
-        head="Flam. Zucchetto +2",neck="Combatant's Torque",ear1="Mache Earring +1",ear2="Telos Earring",
-        body=gear.valorous_wsd_body,hands="Sakpata's Gauntlets",ring1="Ramuh Ring +1",ring2="Ramuh Ring +1",
-        back="Ground. Mantle +1",waist="Tempus Fugit",legs="Carmine Cuisses +1",feet="Sulev. Leggings +2"}
-
-	sets.engaged.Tank = {main="Sakpata's Sword",sub="Ochain",ammo="Staunch Tathlum +1",
-		head="Chev. Armet +1",neck="Loricate Torque +1",ear1="Creed Earring",ear2="Thureous Earring",
-		body="Tartarus Platemail",hands="Souv. Handsch. +1",ring1="Defending Ring",ring2="Shadow Ring",
-		back="Shadow Mantle",waist="Flume Belt +1",legs="Chev. Cuisses +1",feet="Souveran Schuhs +1"}
-		
-	sets.engaged.DDTank = {ammo="Hasty Pinion +1",
-		head="Sakpata's Helm",neck="Loricate Torque +1",ear1="Brutal Earring",ear2="Cessance Earring",
-		body="Tartarus Platemail",hands="Sakpata's Gauntlets",ring1="Defending Ring",ring2="Patricius Ring",
-		back="Weard Mantle",waist="Sailfi Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
-		
-	sets.engaged.Acc.DDTank = {ammo="Hasty Pinion +1",
-		head="Sakpata's Helm",neck="Loricate Torque +1",ear1="Mache Earring +1",ear2="Telos Earring",
-		body="Tartarus Platemail",hands="Sakpata's Gauntlets",ring1="Defending Ring",ring2="Patricius Ring",
-		back="Weard Mantle",waist="Sailfi Belt +1",legs="Sakpata's Cuisses",feet="Sakpata's Leggings"}
-		
-	sets.engaged.NoShellTank = {main="Sakpata's Sword",sub="Ochain",ammo="Staunch Tathlum +1",
-        head="Jumalik Helm",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Etiolation Earring",
-        body="Rev. Surcoat +3",hands="Sakpata's Gauntlets",ring1="Defending Ring",ring2="Moonlight Ring",
-        back="Moonlight Cape",waist="Flume Belt +1",legs=gear.odyssean_fc_legs,feet="Cab. Leggings +1"}
-		
-    sets.engaged.Reraise = set_combine(sets.engaged.Tank, sets.Reraise)
-    sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc.Tank, sets.Reraise)
 		
 	--------------------------------------
 	-- Custom buff sets
 	--------------------------------------
-	sets.buff.Doom = set_combine(sets.buff.Doom, {})
+	--sets.buff.Doom = set_combine(sets.buff.Doom, {})
+	sets.buff.Doom = {
+		neck="Nicander's Necklace",
+		waist="Gishdubar Sash",
+		ring1="Eshmun's Ring",
+		ring2="Eshmun's Ring",
+	}
+	sets.precast.Item['Holy Water'] = {ring1="Blenmot's Ring +1"}
+	sets.precast.Item['Hallowed Water'] = sets.precast.Item['Holy Water']
 	sets.buff.Sleep = {neck="Vim Torque +1"}
     sets.buff.Cover = {body="Cab. Surcoat +1"}
 end
