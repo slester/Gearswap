@@ -241,21 +241,21 @@ function init_gear_sets()
 	--------------------------------------
 	sets.idle = {
 		main="Idris",
-		sub="Genmei Shield",
+		sub="Ammurapi Shield",
 		range="Dunna",
 		ammo=empty,
 		head="Azimuth Hood +2",
-		neck="Loricate Torque +1",
+		neck="Warder's Charm +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
 		body="Geomancy Tunic +3",
 		hands="Geo. Mitaines +3",
 		ring1="Defending Ring",
 		ring2="Gelatinous Ring +1",
-		back=gear.fastcast_jse_cape,
-		waist="Isa Belt",
+		back="Moonlight Cape",
+		waist="Platinum Moogle Belt",
 		legs="Nyame Flanchard",
-		feet="Bagua Sandals +3",
+		feet="Azimuth Gaiters +2",
 	}
 
 	sets.idle.Pet = {
