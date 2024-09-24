@@ -194,19 +194,19 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-		ammo = "Staunch Tathlum +1",
-		head = "Chevalier's Armet +2", -- +3
-		neck = "Warder's Charm +1",
-		ear1 = "Thureous Earring",
-		ear2 = "Odnowa Earring +1",
-		body = "Sakpata's Plate",
-		hands = "Souveran Handschuhs +1", 
-		ring1 = "Moonlight Ring",
-		ring2 = "Moonlight Ring",
-		back = gear.enmity_jse_back, -- TODO: block skill?
-		waist = "Carrier's Sash",
-		legs = "Chevalier's Cuisses +2",
-		feet = "Souveran Schuhs +1"
+		ammo="Staunch Tathlum +1",
+		head="Chevalier's Armet +2", -- TODO: +3
+		neck="Warder's Charm +1",
+		ear1="Thureous Earring",
+		ear2="Odnowa Earring +1",
+		body="Sakpata's Plate",
+		hands="Souveran Handschuhs +1",
+		ring1="Moonlight Ring",
+		ring2="Moonlight Ring",
+		back=gear.enmity_jse_back,
+		waist="Carrier's Sash",
+		legs="Chevalier's Cuisses +2", -- TODO: +3
+		feet="Souveran Schuhs +1"
 	}
 		
 
@@ -278,7 +278,6 @@ function init_gear_sets()
 	--------------------------------------
 	-- Custom buff sets
 	--------------------------------------
-	--sets.buff.Doom = set_combine(sets.buff.Doom, {})
 	sets.buff.Doom = {
 		neck="Nicander's Necklace",
 		waist="Gishdubar Sash",
@@ -289,22 +288,4 @@ function init_gear_sets()
 	sets.precast.Item['Hallowed Water'] = sets.precast.Item['Holy Water']
 	sets.buff.Sleep = {neck="Vim Torque +1"}
     sets.buff.Cover = {body="Cab. Surcoat +1"}
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'NIN' then
-        set_macro_page(2, 4)
-    elseif player.sub_job == 'RUN' then
-        set_macro_page(9, 4)
-    elseif player.sub_job == 'RDM' then
-        set_macro_page(6, 4)
-    elseif player.sub_job == 'BLU' then
-        set_macro_page(8, 4)
-    elseif player.sub_job == 'DNC' then
-        set_macro_page(4, 4)
-    else
-        set_macro_page(1, 4) --War/Etc
-    end
 end

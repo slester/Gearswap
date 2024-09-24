@@ -81,8 +81,22 @@ function init_gear_sets()
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 
-	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
-	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
+	-- loses 27% from head/body, 1% of overage
+	-- replaces: 18% / 26%
+	sets.precast.FC.Impact =  set_combine(sets.precast.FC, {
+		main="C. Palug Hammer", -- 7%
+		sub="Chanter's Shield", -- +0%
+		head=empty,
+		ear2="Loquacious Earring", -- +1%
+		body="Twilight Cloak",
+		ring1="Kishar Ring", -- 4%
+		legs="Ayanmo Cosciales +2", -- 6%
+	})
+
+	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+		main="Daybreak",
+		sub="Chanter's Shield",
+	})
 
     -- JOB ABILITIES
     sets.precast.JA.Benediction = {body="Piety Bliaut +3"}
@@ -125,17 +139,11 @@ function init_gear_sets()
 
 	sets.midcast.Teleport = sets.ConserveMP
 
-    sets.midcast.FastRecast = {main=gear.grioavolr_fc_staff,sub="Clerisy Strap +1",ammo="Hasty Pinion +1",
-		head="Bunzi's Hat",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
-		body="Inyanga Jubbah +2",hands="Gende. Gages +1",ring1="Kishar Ring",ring2="Prolix Ring",
-		back="Swith Cape +1",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
-
+    sets.midcast.FastRecast = sets.precast.FC
 	sets.midcast.Raise = sets.midcast.FastRecast
-
-    -- Cure sets
-
 	sets.midcast['Full Cure'] = sets.midcast.FastRecast
 
+    -- Cure sets
 	sets.midcast.Cure = {
 		main="Raetic Rod +1",
 		sub="Genmei Shield",
@@ -210,8 +218,8 @@ function init_gear_sets()
 	})
 
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
-		head="Chironic Hat", --1
 		main="Vadose Rod", --1
+		head="Chironic Hat", --1
 		hands="Regal Cuffs", --2
 		waist="Emphatikos Rope", --1
 	})
@@ -225,10 +233,10 @@ function init_gear_sets()
 		feet="Bunzi's Sabots",
 	})
 
-	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
-	sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
-	sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
-	sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
+	sets.midcast.Protect = {ring2="Sheltered Ring"}
+	sets.midcast.Protectra = {ring2="Sheltered Ring"}
+	sets.midcast.Shell = {ring2="Sheltered Ring"}
+	sets.midcast.Shellra = {ring2="Sheltered Ring"}
 
 	sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'], {})
 
@@ -250,64 +258,98 @@ function init_gear_sets()
 		neck="Sroda Necklace", --(-50%)
 	})
 
-	sets.midcast.Impact = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head=empty,neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Twilight Cloak",hands=gear.chironic_enfeeble_hands,ring1="Metamor. Ring +1",ring2="Stikini Ring +1",
-		back="Toro Cape",waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-		
-	sets.midcast['Elemental Magic'] = {main="Daybreak",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
-		head="Bunzi's Hat",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Witching Robe",hands=gear.chironic_enfeeble_hands,ring1="Shiva Ring +1",ring2="Freke Ring",
-		back="Toro Cape",waist=gear.ElementalObi,legs="Chironic Hose",feet=gear.chironic_nuke_feet}
+	sets.midcast.Impact = {
+		main="Daybreak",
+		sub="Ammurapi
+		Shield",ammo="Pemphredo Tathlum",
+		head=empty,
+		neck="Erra Pendant",
+		ear1="Regal Earring",
+		ear2="Digni. Earring",
+		body="Twilight Cloak",
+		--hands=gear.chironic_enfeeble_hands,
+		ring1="Metamor. Ring +1",
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
+		--back="Toro Cape",
+		waist="Acuity Belt +1",
+		legs="Chironic Hose",
+		--feet=gear.chironic_nuke_feet,
+	}
 
-	sets.midcast['Elemental Magic'].Resistant = {main="Daybreak",sub="Ammurapi Shield",ammo="Ghastly Tathlum +1",
-		head="C. Palug Crown",neck="Sanctity Necklace",ear1="Regal Earring",ear2="Crematio Earring",
-		body="Witching Robe",hands=gear.chironic_enfeeble_hands,ring1="Metamor. Ring +1",ring2="Freke Ring",
-		back="Toro Cape",waist="Yamabuki-no-Obi",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
+	-- Banish, Banishga, Holy
+	sets.midcast['Divine Magic'] = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		ammo="Ghastly Tathlum +1",
+		neck="Baetyl Pendant",
+		ear1="Regal Earring",
+		ear2="Malignance Earring",
+		body="Cohort Cloak +1",
+		hands="Bunzi's Gloves",
+		ring1="Metamor. Ring +1",
+		ring2="Freke Ring",
+		back="Alaunus's Cape",
+		waist="Eschan Stone",
+		legs="Bunzi's Pants",
+		feet="Bunzi's Sabots",
+	}
 
-	sets.midcast['Divine Magic'] = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="C. Palug Crown",neck="Incanter's Torque",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Luminary Sash",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-		
-	sets.midcast.Holy = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="C. Palug Crown",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Friomisi Earring",
-		body="Witching Robe",hands=gear.chironic_enfeeble_hands,ring1="Metamor. Ring +1",ring2="Freke Ring",
-		back="Toro Cape",waist=gear.ElementalObi,legs="Gyve Trousers",feet=gear.chironic_nuke_feet}
+	sets.midcast.Repose = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		ammo="Hydrocera",
+		head="Theophany Cap +3",
+		neck="Jokushu Chain",
+		ear1="Regal Earring",
+		ear2="Ebers Earring +1", -- TODO +2
+		body="Theophany Bliaut +3",
+		hands="Piety Mitts +3",
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
+		back="Aurist's Cape +1",
+		waist="Luminary Sash",
+		legs="Theophany Pantaloons +3",
+		feet="Theophany Duckbills +3",
+	}
+	sets.midcast.Flash = sets.midcast.Repose
 
-	sets.midcast['Dark Magic'] = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Bunzi's Hat",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Inyanga Jubbah +2",hands=gear.chironic_enfeeble_hands,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
+	sets.midcast['Dark Magic'] = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		ammo="Pemphredo Tathlum",
+		head="Bunzi's Hat",
+		neck="Erra Pendant",
+		ear1="Regal Earring",
+		ear2="Digni. Earring",
+		body="Inyanga Jubbah +2",
+		--hands=gear.chironic_enfeeble_hands,
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
+		back="Aurist's Cape +1",
+		waist="Acuity Belt +1",
+		legs="Chironic Hose",
+		--feet=gear.chironic_nuke_feet,
+	}
 
-    sets.midcast.Drain = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-        head="Pixie Hairpin +1",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-        body="Inyanga Jubbah +2",hands=gear.chironic_enfeeble_hands,ring1="Evanescence Ring",ring2="Archon Ring",
-        back="Aurist's Cape +1",waist="Fucho-no-obi",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-
-    sets.midcast.Drain.Resistant = {main="Rubicundity",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-        head="Bunzi's Hat",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-        body="Chironic Doublet",hands=gear.chironic_enfeeble_hands,ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-        back="Aurist's Cape +1",waist="Fucho-no-obi",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-
+    sets.midcast.Drain = {
+		main="Rubicundity",
+		sub="Ammurapi Shield",
+		ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+		neck="Erra Pendant",
+		ear1="Regal Earring",
+		ear2="Digni. Earring",
+        body="Inyanga Jubbah +2",
+		hands="Regal Cuffs",
+		ring1="Evanescence Ring",
+		ring2="Archon Ring",
+        back="Aurist's Cape +1",
+		waist="Fucho-no-obi",
+		legs="Chironic Hose",
+		feet="Theophany Duckbills +3",
+	}
     sets.midcast.Aspir = sets.midcast.Drain
-	sets.midcast.Aspir.Resistant = sets.midcast.Drain.Resistant
 
-	sets.midcast.Stun = {main=gear.grioavolr_fc_staff,sub="Clerisy Strap +1",ammo="Hasty Pinion +1",
-		head="Bunzi's Hat",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Malignance Earring",
-		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Kishar Ring",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Witful Belt",legs="Lengo Pants",feet="Regal Pumps +1"}
-
-	sets.midcast.Stun.Resistant = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Bunzi's Hat",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-		
-	sets.midcast.Dispel = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo Tathlum",
-		head="Bunzi's Hat",neck="Erra Pendant",ear1="Regal Earring",ear2="Digni. Earring",
-		body="Inyanga Jubbah +2",hands="Fanatic Gloves",ring1="Stikini Ring +1",ring2="Stikini Ring +1",
-		back="Aurist's Cape +1",waist="Acuity Belt +1",legs="Chironic Hose",feet=gear.chironic_nuke_feet}
-		
 	sets.midcast.Dispelga = set_combine(sets.midcast.Dispel, {main="Daybreak",sub="Ammurapi Shield"})
 
 	sets.midcast['Enfeebling Magic'] = {
@@ -320,7 +362,7 @@ function init_gear_sets()
 		ear2="Ebers Earring +1", -- *** +2
 		body="Theophany Bliaut +3",
 		hands="Regal Cuffs",
-		ring1=gear.StikiniRing,
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
 		ring2="Kishar Ring",
 		back="Aurist's Cape +1",
 		waist="Obstinate Sash",
@@ -330,7 +372,7 @@ function init_gear_sets()
 
 	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {
 		hands="Kaykaus Cuffs +1",
-		ring2=gear.StikiniRing2,
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
 	})
 
 	sets.midcast.Slow = set_combine(sets.midcast['Enfeebling Magic'], {
@@ -378,8 +420,8 @@ function init_gear_sets()
 
 	sets.idle.Refresh = set_combine(sets.idle, {
 		ammo="Homiliary",
-		ring1=gear.StikiniRing,
-		ring2=gear.StikiniRing2,
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
+		ring2={name="Stikini Ring +1", bag="wardrobe4"},
 		feet=gear.ChironicSlippers_Refresh,
 	})
 
