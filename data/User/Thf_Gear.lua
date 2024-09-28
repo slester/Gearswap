@@ -30,8 +30,6 @@ function user_job_setup()
 	send_command('bind !r gs c weapons MagicWeapons')
 	send_command('bind ^\\\\ input /ja "Despoil" <t>')
 	send_command('bind !\\\\ input /ja "Mug" <t>')
-
-    select_default_macro_book()
 end
 
 -- Define sets and vars used by this job file.
@@ -235,42 +233,6 @@ function init_gear_sets()
         feet="Plunderer's Poulaines +3"
     }
 		
-end
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(8, 5)
-    elseif player.sub_job == 'WAR' then
-        set_macro_page(7, 5)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(10, 5)
-    else
-        set_macro_page(6, 5)
-    end
-end
-
-function user_job_lockstyle()
-	if player.equipment.main == nil or player.equipment.main == 'empty' then
-		windower.chat.input('/lockstyleset 001')
-	elseif res.items[item_name_to_id(player.equipment.main)].skill == 3 then --Sword in main hand.
-		if player.equipment.sub == nil or player.equipment.sub == 'empty' then --Sword/Nothing.
-				windower.chat.input('/lockstyleset 007')
-		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 2 then --Sword/Dagger.
-			windower.chat.input('/lockstyleset 007')
-		else
-			windower.chat.input('/lockstyleset 007') --Catchall just in case something's weird.
-		end
-	elseif res.items[item_name_to_id(player.equipment.main)].skill == 2 then --Dagger in main hand.
-		if player.equipment.sub == nil or player.equipment.sub == 'empty' then --Dagger/Nothing.
-			windower.chat.input('/lockstyleset 008')
-		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 2 then --Dagger/Dagger.
-			windower.chat.input('/lockstyleset 008')
-		else
-			windower.chat.input('/lockstyleset 008') --Catchall just in case something's weird.
-		end
-	end
 end
 
 autows_list = {['Aeneas']="Rudra's Storm",['Aeolian']='Aeolian Edge',['Savage']='Savage Blade',['Throwing']="Rudra's Storm",['SwordThrowing']='Savage Blade',['Evisceration']='Evisceration',['ProcWeapons']='Wasp Sting',['Bow']='Empyreal Arrow'}

@@ -9,13 +9,12 @@ function user_job_setup()
     state.PhysicalDefenseMode:options('PDT','NukeLock')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('None','Naegling','EnspellOnly','DualSwords','DualClubs','DualAeolian')
+	state.Weapons:options('None','Naegling','Crocea','EnspellOnly','DualClubs','DualAeolian')
 
-	gear.stp_jse_back = {name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
-	gear.nuke_jse_back = {name="Sucellos's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
-	gear.wsd_jse_back = {name="Sucellos's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+	gear.stp_jse_back = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+	gear.nuke_jse_back = { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+	gear.wsd_jse_back = { name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
-		-- Additional local binds
 	send_command('bind ^` gs c cycle ElementalMode')
 	send_command('bind @` gs c cycle MagicBurstMode')
 	send_command('bind ^@!` input /ja "Accession" <me>')
@@ -36,8 +35,6 @@ function user_job_setup()
 	send_command('bind ^q gs c set weapons enspellonly;gs c set unlockweapons true')
 	send_command('bind !r gs c set skipprocweapons true;gs c reset weaponskillmode;gs c set weapons none')
 	send_command('bind !q gs c set skipprocweapons false;gs c set weapons DualProcDaggers;gs c set weaponskillmode proc')
-	
-	select_default_macro_book()
 end
 
 function init_gear_sets()
@@ -89,7 +86,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		ring1="Epaminondas's Ring",
 		ring2="Shukuyu Ring",--ring2="Sroda Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Sailfi Belt +1",
 		legs="Nyame Flanchard",
 		feet="Leth. Houseaux +3"
@@ -105,7 +102,7 @@ function init_gear_sets()
 		hands="Malignance Gloves",
 		ring1="Begrudging Ring",
 		ring2="Ilabrat Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Fotia Belt",
 		--legs="Zoar Subligar +1",
 		feet="Thereoid Greaves"
@@ -122,7 +119,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1="Archon Ring",
 		ring2="Epaminondas's Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Orpheus's Sash",
 		legs="Nyame Flanchard",
 		feet="Leth. Houseaux +3"
@@ -138,7 +135,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1="Medada's Ring", --ring1="Weather. Ring +1",
 		ring2="Epaminondas's Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Orpheus's Sash",
 		legs="Nyame Flanchard",
 		feet="Leth. Houseaux +3"
@@ -154,7 +151,7 @@ function init_gear_sets()
 		hands="Jhakri Cuffs +2",
 		ring1="Medada's Ring",
 		ring2="Epaminondas's Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Orpheus's Sash",
 		legs="Nyame Flanchard",
 		feet="Leth. Houseaux +3"
@@ -172,7 +169,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1="Metamor. Ring +1",
 		ring2="Rufescent Ring",
-		back="Sucellos's Cape",
+		back=gear.wsd_jse_back,
 		waist="Fotia Belt",
 		legs="Leth. Fuseau +3",
 		feet="Leth. Houseaux +3"
@@ -188,13 +185,13 @@ function init_gear_sets()
 		ammo="Regal Gem",
 		head="Kaykaus Mitra +1",
 		neck="Incanter's Torque",
-		ear1="Meili Earring",
-		ear2="Regal Earring",
+		ear1="Regal Earring",
+		ear2={name="Odnowa Earring +1", priority=254},
 		body="Kaykaus Bliaut +1",
 		hands="Kaykaus Cuffs +1",
 		ring1="Sirona's Ring",
-		ring2={name="Stikini Ring +1", bag="wardrobe4"},
-		back="Sucellos's Cape",
+		ring2={name="Gelatinous Ring +1", bag="wardrobe4"},
+		back={name="Moonlight Cape", priority=255},
 		waist="Luminary Sash",
 		legs="Atrophy Tights +3",
 		--feet="Kaykaus Boots +1"
@@ -207,23 +204,6 @@ function init_gear_sets()
 	sets.midcast.LightDayCure = sets.midcast.LightWeatherCure
 
 	sets.midcast.Curaga = sets.midcast.Cure
-	sets.Self_Healing = {
-		main="Daybreak",
-		sub="Ammurapi Shield",
-		ammo="Regal Gem",
-		head="Kaykaus Mitra +1",
-		neck="Phalaina Locket",
-		ear1="Meili Earring",
-		ear2="Regal Earring",
-		body="Kaykaus Bliaut +1",
-		hands="Kaykaus Cuffs +1",
-		ring1="Kunaji Ring",
-		ring2="Sirona's Ring",
-		back="Sucellos's Cape",
-		waist="Gishdubar Sash",
-		legs="Atrophy Tights +3",
-		--feet="Kaykaus Boots +1"
-	}
 
 	sets.midcast.Cursna = {
 		ammo="Impatiens",
@@ -249,8 +229,8 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Leth. Chappel +3",
 		neck="Dls. Torque +2",
-		ear1="Odnowa Earring +1",
-		ear2="Leth. Earring +2",
+		ear1="Lethargy Earring",
+		ear2="Odnowa Earring +1",
 		body="Lethargy Sayon +3",
 		hands="Atrophy Gloves +3",
 		ring1="Defending Ring",
@@ -412,7 +392,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1="Metamor. Ring +1",
 		ring2={name="Stikini Ring +1", bag="wardrobe4"},
-		back="Sucellos's Cape",
+		back=gear.nuke_jse_back,
 		waist="Luminary Sash",
 		legs="Chironic Hose",
 		feet="Vitiation Boots +3"
@@ -472,7 +452,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1={name="Stikini Ring +1", bag="wardrobe3"},
 		ring2={name="Stikini Ring +1", bag="wardrobe4"},
-		back="Sucellos's Cape",
+		back=gear.nuke_jse_back,
 		waist="Obstin. Sash",
 		legs="Leth. Fuseau +3",
 		feet="Vitiation Boots +3"
@@ -491,7 +471,7 @@ function init_gear_sets()
 		hands="Leth. Ganth. +3",
 		ring1="Medada's Ring",
 		ring2="Metamor. Ring +1",
-		back="Sucellos's Cape",
+		back=gear.nuke_jse_back,
 		waist="Acuity Belt +1",
 		legs="Leth. Fuseau +3",
 		feet="Leth. Houseaux +3"
@@ -509,7 +489,7 @@ function init_gear_sets()
 		hands="Bunzi's Gloves",
 		ring1="Medada's Ring",
 		ring2="Metamor. Ring +1",
-		back="Sucellos's Cape",
+		back=gear.nuke_jse_back,
 		waist="Acuity Belt +1",
 		legs="Leth. Fuseau +3",
 		feet="Leth. Houseaux +3"
@@ -568,9 +548,9 @@ function init_gear_sets()
 		ear2="Odnowa Earring +1",
 		body="Bunzi's Robe",
 		hands="Bunzi's Gloves",
-		ring1="Defending Ring",
+		ring1={name="Stikini Ring +1", bag="wardrobe3"},
 		ring2="Purity Ring",
-		back="Sucellos's Cape", -- TODO fix augments
+		back="Moonlight Cape",
 		waist="Carrier's Sash",
 		legs="Bunzi's Pants",
 		feet="Bunzi's Sabots"
@@ -588,8 +568,9 @@ function init_gear_sets()
 
 	-- Weapons sets
 	sets.weapons.Naegling = {main="Naegling",sub="Genmei Shield",range=empty}
+	sets.weapons.Crocea = {main="Crocea Mors",sub="Genmei Shield",range=empty}
 	sets.weapons.DualWeapons = {main="Naegling",sub="Machaera +2",range=empty}
-	sets.weapons.EnspellOnly = {main="Qutrub Dagger",sub="Esoteric Athame",range="Ullr"}
+	sets.weapons.EnspellOnly = {main="Qutrub Knife",sub="Esoteric Athame",range="Ullr"}
 	sets.weapons.DualClubs = {main="Maxentius",sub="Thibron",range=empty}
 	sets.weapons.DualAeolian = {main="Tauret",sub="Bunzi's Rod",range=empty}
 
@@ -602,8 +583,8 @@ function init_gear_sets()
 		ear2="Telos Earring",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		ring1="Chirich Ring +1",
-		ring2="Petrov Ring", --ring2="Chirich Ring +1",
+		ring1={name="Chirich Ring +1", bag="wardrobe5"},
+		ring2={name="Chirich Ring +1", bag="wardrobe6"},
 		back="Sucellos's Cape",
 		waist="Windbuffet Belt +1",
 		legs="Malignance Tights",
@@ -611,15 +592,14 @@ function init_gear_sets()
 	}
 		
 	sets.engaged.EnspellOnly = {
-		range="Ullr",
 		head="Malignance Chapeau", --head="Umuthi Hat",
 		neck="Dls. Torque +2",
 		ear1="Suppanomimi",
 		ear2="Digni. Earring", --ear2="Hollow Earring",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",
-		ring1="Metamorph Ring +1", --ring1="Chirich Ring +1",
-		ring2="Chirich Ring +1",
+		ring1={name="Chirich Ring +1", bag="wardrobe5"},
+		ring2={name="Chirich Ring +1", bag="wardrobe6"},
 		back="Sucellos's Cape", -- TODO fix augments, ideally [DEX +20/Accuracy +30/Attack +20/Dual Wield +10]
 		waist="Orpheus's Sash",
 		legs="Malignance Tights",
