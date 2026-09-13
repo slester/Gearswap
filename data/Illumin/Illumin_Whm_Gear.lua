@@ -227,8 +227,8 @@ function init_gear_sets()
 		legs="Shedir Seraweels", -- +35
 	})
 
-	-- Enhancing Magic 490/501 = 3
-	-- commented out skill+ until I can get 11 more, probably with ML
+	-- 2 base with enhancing
+	-- Enhancing Magic 490/501 = 3; commented out skill+ until I can get 11 more, probably with ML
 	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
 		main="Vadose Rod", --1
 		head="Chironic Hat", --1

@@ -45,7 +45,7 @@ function init_gear_sets()
 	sets.precast.JA["Enlightenment"] = {} --body="Peda. Gown +1"
 
 	-- WITH WRONG ARTS: +20% penalty and no grimoire bonuses
-	-- RDM subjob: 15 + Gear: 67 = 82/80
+	-- RDM subjob: 15 + Gear: 68 = 83/80
 	sets.precast.FC = {
 		main = "Musa", -- 10
 		sub = "Clerisy Strap +1", -- 3
@@ -55,7 +55,7 @@ function init_gear_sets()
 		ear1 = "Etiolation Earring", -- 1
 		ear2 = "Malignance Earring", -- 4
 		body = "Arbatel Gown +3", -- DT-13%
-		hands = "Academic's Bracers +2", -- 7, TODO +3 for 8, can then drop something
+		hands = "Academic's Bracers +3", -- 8, TODO +4
 		ring1 = "Defending Ring", -- DT-10%
 		ring2 = "Medada's Ring", -- 10
 		back = "Fi Follet Cape +1", -- 10, SIRD-5
@@ -66,7 +66,8 @@ function init_gear_sets()
 
 	-- WITH CORRECT ARTS
 	-- RDM subjob: 15 + Gear: 64 = 79/80
-	-- Spellcasting Time same grimoire: -10% base + -23% = -33%
+	-- Spellcasting Time same grimoire: -10% base + -26% = -36%
+	-- so should only need 69 FC to cap using 0.2 = (1-FC)*(1-SCH)
 	-- DT: -35%
 	-- also want to make SIRD, DT priorities
 	-- The maximum recast reduction allowed using Light Arts and Grimoire reduction gear is 90%
@@ -80,13 +81,13 @@ function init_gear_sets()
 		ear1 = "Loquacious Earring", -- 2
 		ear2 = "Malignance Earring", -- 4
 		body = "Arbatel Gown +3", -- DT-13%
-		hands = "Academic's Bracers +2", -- 7, TODO +3 for 8
+		hands = "Academic's Bracers +3", -- 8, TODO +4
 		ring1 = "Defending Ring", -- DT-10%
 		ring2 = "Medada's Ring", -- 10
 		back = "Fi Follet Cape +1", -- 10, SIRD-5
 		waist = "Embla Sash", -- 5
 		legs = "Agwu's Slops", -- 7 --legs="Arbatel Pants +3", -- DT-12%
-		feet = "Academic's Loafers +2", -- Grimoire: -10%, TODO +3 for -13%
+		feet = "Academic's Loafers +3", -- Grimoire: -13%, TODO +4
 	}
 
 	sets.precast.FC["Enhancing Magic"] = set_combine(sets.precast.FC, { waist = "Siegel Sash" })
@@ -199,7 +200,7 @@ function init_gear_sets()
 		head = "Pixie Earring +1",
 		neck = "Erra Pendant",
 		--ear2="Mani Earring", -- TODO
-		body = "Academic's Gown +2", -- TODO +3? Merlinic Jubbah w/Fern (+11 max)
+		body = "Academic's Gown +3", -- TODO +4?
 		hands = "Merlinic Dastanas", -- TODO double check augs
 		ring1 = "Evanescence Ring",
 		ring2 = "Archon Ring",
@@ -345,8 +346,8 @@ function init_gear_sets()
 	sets.HPCure = {}
 
 	sets.buff.Doom = set_combine(sets.buff.Doom, {})
-	sets.buff["Light Arts"] = { legs = "Academic's Pants +2" } -- TODO +3
-	sets.buff["Dark Arts"] = { body = "Academic's Gown +2" } -- TODO +3
+	sets.buff["Light Arts"] = { legs = "Academic's Pants +3" } -- TODO +4
+	sets.buff["Dark Arts"] = { body = "Academic's Gown +3" } -- TODO +4
 
 	-- head/body/waist = 20 fewer DT; 19 DT recoverable
 	sets.buff.Sublimation = {

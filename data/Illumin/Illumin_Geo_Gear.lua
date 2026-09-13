@@ -52,7 +52,7 @@ function init_gear_sets()
 	sets.precast.JA['Life Cycle'] = {body="Geo. Tunic +3", back=gear.fastcast_jse_cape}
 	sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 	sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
-	sets.precast.JA['Full Circle'] = {head="Azimuth Hood +2", hands="Bagua Mitaines +3"}
+	sets.precast.JA['Full Circle'] = {head="Azimuth Hood +3", hands="Bagua Mitaines +3"}
 
 	-- Indi Duration in slots that would normally have skill here to make entrust more efficient.
 	sets.buff.Entrust = {}
@@ -103,7 +103,7 @@ function init_gear_sets()
 		sub="Genmei Shield",
 		range="Dunna",
 		ammo=empty,
-		head="Azimuth Hood +2",
+		head="Azimuth Hood +3",
 		body="Azimuth Coat +2",
 		hands="Azimuth Gloves +2",
 		legs="Azimuth Tights +2",
@@ -143,7 +143,7 @@ function init_gear_sets()
 		main="Bunzi's Rod",
 		sub="Ammurapi Shield",
 		ammo="Ghastly Tathlum +1",
-		head="Azimuth Hood +2",
+		head="Azimuth Hood +3",
 		neck="Mizukage-no-Kubikazari",
 		ear1="Regal Earring",
 		ear2="Malignance Earring",
@@ -244,7 +244,7 @@ function init_gear_sets()
 		sub="Ammurapi Shield",
 		range="Dunna",
 		ammo=empty,
-		head="Azimuth Hood +2",
+		head="Azimuth Hood +3",
 		neck="Warder's Charm +1",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
@@ -263,8 +263,8 @@ function init_gear_sets()
 		sub="Genmei Shield",
 		range="Dunna",
 		ammo=empty,
-		head="Azimuth Hood +2",
-		neck="Incanter's Torque",
+		head="Azimuth Hood +3",
+		neck="Bagua Charm +2",
 		ear1="Etiolation Earring",
 		ear2="Odnowa Earring +1",
 		body="Geomancy Tunic +3",

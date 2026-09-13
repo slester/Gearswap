@@ -66,7 +66,7 @@ function init_gear_sets()
 		head=empty,
 		body="Twilight Cloak",
 		ear1="Malignance Earring", -- 4
-		ear2="Lethargy Earring", -- 6
+		ear2="Lethargy Earring +1", -- 6
 	})
 
 	-- needs 16 to make up for lost from Crocea Mors
@@ -75,7 +75,7 @@ function init_gear_sets()
 		sub="Ammurapi Shield",
 		ammo="Sapience Orb", -- 2
 		ear1="Malignance Earring", -- 4
-		ear2="Lethargy Earring", -- 6
+		ear2="Lethargy Earring +1", -- 6
 		ring1="Kishar Ring", -- 4
 	})
        
@@ -189,8 +189,8 @@ function init_gear_sets()
 		ammo="Regal Gem",
 		head="Kaykaus Mitra +1",
 		neck="Incanter's Torque",
-		ear1="Regal Earring",
-		ear2={name="Odnowa Earring +1", priority=254},
+		ear1={name="Odnowa Earring +1", priority=254},
+		ear2="Regal Earring",
 		body="Kaykaus Bliaut +1",
 		hands="Kaykaus Cuffs +1",
 		ring1="Sirona's Ring",
@@ -198,7 +198,7 @@ function init_gear_sets()
 		back={name="Moonlight Cape", priority=255},
 		waist="Luminary Sash",
 		legs="Atrophy Tights +3",
-		--feet="Kaykaus Boots +1"
+		feet="Kaykaus Boots +1"
 	}
 		
     sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {
@@ -233,8 +233,8 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Leth. Chappel +3",
 		neck="Dls. Torque +2",
-		ear1="Lethargy Earring",
-		ear2="Odnowa Earring +1",
+		ear1="Odnowa Earring +1",
+		ear2="Lethargy Earring +1",
 		body="Lethargy Sayon +3",
 		hands="Atrophy Gloves +3",
 		ring1="Defending Ring",
@@ -279,8 +279,8 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Amalric Coif +1",
 		neck="Dls. Torque +2",
-		ear1="Lethargy Earring", -- TODO +2
-		ear2="Odnowa Earring +1",
+		ear1="Odnowa Earring +1",
+		ear2="Lethargy Earring +1", -- TODO +2
 		body="Atrophy Tabard +3",
 		hands="Atrophy Gloves +3",
 		ring1="Defending Ring",
@@ -323,7 +323,7 @@ function init_gear_sets()
 		--head="Taeon Chapeau", -- TODO
 		neck="Incanter's Torque",
 		ear1="Mimir Earring",
-		ear2="Lethargy Earring",
+		ear2="Lethargy Earring +1", -- TODO +2
 		body="Taeon Tabard",
 		hands="Taeon Gloves",
 		ring1={name="Stikini Ring +1", bag="wardrobe3"},
@@ -341,7 +341,7 @@ function init_gear_sets()
 		head="Leth. Chappel +3",
 		neck="Dls. Torque +2",
 		ear1="Odnowa Earring +1",
-		ear2="Leth. Earring +2",
+		ear2="Leth. Earring +1",
 		body="Lethargy Sayon +3",
 		hands="Atrophy Gloves +3",
 		ring1="Defending Ring",
@@ -362,7 +362,7 @@ function init_gear_sets()
 		body="Lethargy Sayon +3",
 		hands="Leth. Ganth. +3",
 		ring1="Kishar Ring",
-		ring2="Weather. Ring +1",
+		--ring2="Weather. Ring +1",
 		back="Sucellos's Cape",
 		waist="Obstin. Sash",
 		legs="Leth. Fuseau +3",
@@ -552,8 +552,8 @@ function init_gear_sets()
 		ammo="Staunch Tathlum +1",
 		head="Bunzi's Hat",
 		neck="Warder's Charm +1",
-		ear1="Eabani Earring",
-		ear2="Odnowa Earring +1",
+		ear1="Odnowa Earring +1",
+		ear2="Eabani Earring",
 		body="Bunzi's Robe",
 		hands="Bunzi's Gloves",
 		ring1={name="Stikini Ring +1", bag="wardrobe3"},

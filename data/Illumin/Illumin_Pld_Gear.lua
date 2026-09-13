@@ -69,7 +69,7 @@ function init_gear_sets()
 	sets.precast.JA["Sentinel"] = set_combine(sets.Enmity, { sub = "Diamond Aspis", feet = "Cab. Leggings +1" })
 	sets.precast.JA["Rampart"] = set_combine(sets.Enmity, { sub = "Diamond Aspis", head = "Cab. Coronet +1" }) -- +3
 	sets.precast.JA["Fealty"] = set_combine(sets.Enmity, { sub = "Diamond Aspis", body = "Cab. Surcoat +1" })
-	sets.precast.JA["Divine Emblem"] = set_combine(sets.Enmity, { feet = "Chev. Sabatons +1" })
+	sets.precast.JA["Divine Emblem"] = set_combine(sets.Enmity, { feet = "Chev. Sabatons +2" })
 	sets.precast.JA["Cover"] = set_combine(sets.Enmity, { sub = "Diamond Aspis", head = "Rev. Coronet +3", body = "Cab. Surcoat +1" })
 
 	-- add mnd for Chivalry
@@ -268,6 +268,8 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
+		main = "Burtgang",
+		sub = "Duban",
 		ammo = "Staunch Tathlum +1",
 		head = "Chevalier's Armet +2", -- TODO: +3
 		neck = "Warder's Charm +1",
@@ -296,14 +298,14 @@ function init_gear_sets()
 	-- Extra defense sets.  Apply these on top of melee or defense sets.
 	sets.Knockback = {}
 	sets.MP = {
-		head = "Chev. Armet +1",
+		head = "Chev. Armet +2",
 		neck = "Coatl Gorget +1",
 		ear2 = "Ethereal Earring",
 		waist = "Flume Belt +1",
 		feet = "Rev. Leggings +3",
 	}
 	sets.passive.AbsorbMP = {
-		head = "Chev. Armet +1",
+		head = "Chev. Armet +2",
 		neck = "Coatl Gorget +1",
 		ear2 = "Ethereal Earring",
 		waist = "Flume Belt +1",
@@ -323,7 +325,7 @@ function init_gear_sets()
 		main = "Sakpata's Sword",
 		sub = "Ochain",
 		ammo = "Eluder's Sachet",
-		head = "Chev. Armet +1",
+		head = "Chev. Armet +2",
 		neck = "Diemer Gorget",
 		ear1 = "Creed Earring",
 		ear2 = "Thureous Earring",
